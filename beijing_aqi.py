@@ -23,9 +23,9 @@ def main() -> None:
 
     print("Column names:")
     print(", ".join(df.columns))
-    print("\nData types:")
-    print(df.dtypes.to_string())
-    print("\n")
+    # print("\nData types:")
+    # print(df.dtypes.to_string())
+    # print("\n")
     print("*" * 20)
 
     print(f"Total rows: {df.shape[0]}")
@@ -34,6 +34,10 @@ def main() -> None:
     print("*" * 20)
     print(f"Total Stations: {df['station'].nunique()}")
     print(f"Name of stations: {', '.join(df['station'].unique())}")
+
+    print("*" * 20)
+    print("Dataset Info including data types:")
+    print(df.info())
 
 
 
