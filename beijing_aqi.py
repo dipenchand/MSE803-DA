@@ -5,7 +5,7 @@ import pandas as pd
 
 DATA_GLOB = "PRSA_Data_*.csv"
 
-
+# Load the dataset from CSV files.
 def load_dataset() -> pd.DataFrame:
     files = sorted(Path(".").glob(DATA_GLOB))
     if not files:
@@ -22,14 +22,19 @@ def main() -> None:
     print("*" * 20)
 
     print("Column names:")
-    for column in df.columns:
-        print(column)
+    print(", ".join(df.columns))
     print("\nData types:")
     print(df.dtypes.to_string())
+    print("\n")
     print("*" * 20)
 
     print(f"Total rows: {df.shape[0]}")
     print(f"Total columns: {df.shape[1]}")
+
+    print("*" * 20)
+    print(f"Total Stations: {df['station'].nunique()}")
+    print(f"Name of stations: {', '.join(df['station'].unique())}")
+
 
 
 if __name__ == "__main__":

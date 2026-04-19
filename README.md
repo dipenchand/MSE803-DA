@@ -1,3 +1,5 @@
+### Description
+This script loads the Beijing Air Quality dataset. It reads the CSV file, displays the first 5 rows of data, and prints all column names. The dataset contains hourly air quality measurements including pollutants (PM2.5, PM10, SO2, NO2, CO, O3) along temperature, pressure, dew point, rain, wind direction, wind speed from various monitoring stations in Beijing.
 
 
 
@@ -14,24 +16,7 @@ First 5 rows
   5  2013      3    1     4    3.0   3.0 12.0 12.0 300.0 72.0  -2.0 1025.2 -19.5   0.0   N   2.0 Aotizhongxin
 ********************
 Column names:
-No
-year
-month
-day
-hour
-PM2.5
-PM10
-SO2
-NO2
-CO
-O3
-TEMP
-PRES
-DEWP
-RAIN
-wd
-WSPM
-station
+No, year, month, day, hour, PM2.5, PM10, SO2, NO2, CO, O3, TEMP, PRES, DEWP, RAIN, wd, WSPM, station
 
 Data types:
 No           int64
@@ -52,6 +37,10 @@ RAIN       float64
 wd             str
 WSPM       float64
 station        str
+
 ********************
 Total rows: 420768
 Total columns: 18
+********************
+Total Stations: 12
+Name of stations: Aotizhongxin, Changping, Dingling, Dongsi, Guanyuan, Gucheng, Huairou, Nongzhanguan, Shunyi, Tiantan, Wanliu, Wanshouxigong
