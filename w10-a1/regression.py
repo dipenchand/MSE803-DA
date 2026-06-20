@@ -114,8 +114,18 @@ print(results.to_string(index=False))
 
 print("*" * 50)
 print("Conclusion:")
-print("The polynomial regression model (degree=2) has a lower MAE, MSE, and RMSE compared to the linear regression model.")
-print("This indicates that the polynomial model provides a better fit to the data.")
+# Decide the better model based on RMSE (lower is better)
+lin_rmse, poly_rmse = lin_metrics[2], poly_metrics[2]
+if poly_rmse < lin_rmse:
+    print(f"The polynomial regression model (degree={POLY_DEGREE}) has lower error metrics "
+          "than the linear regression model.")
+    print("This indicates that the polynomial model provides a better fit to the data.")
+elif lin_rmse < poly_rmse:
+    print(f"The linear regression model has lower error metrics than the "
+          f"polynomial regression model (degree={POLY_DEGREE}).")
+    print("This indicates that the linear model provides a better fit to the data.")
+else:
+    print("Both models have comparable error metrics on the test data.")
 print("*" * 50)
 
 # Visualization
@@ -145,5 +155,21 @@ plt.grid(True, alpha=0.3)
 plt.tight_layout()
 
 # Save to file and display
-plt.savefig("regression_plot.png", dpi=150)
-plt.show()
+# plt.savefig("regression_plot.png", dpi=150)
+# plt.show()
+
+print("*" * 50)
+print("PREDICTION")
+
+# Predict the salary for 13 years of experience (missing in dataset)
+years_to_predict = 13.2
+X_new = np.array([[years_to_predict]])
+
+lin_pred = lin_model.predict(X_new)[0]
+poly_pred = poly_model.predict(X_new)[0]
+
+print(f"\nPredicted salary for {years_to_predict} years of experience:")
+print(f"Linear Regression           : {lin_pred:,.2f}")
+print(f"Polynomial Regression (deg={POLY_DEGREE}) : {poly_pred:,.2f}")
+print("*" * 50)
+# here
